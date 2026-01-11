@@ -13,11 +13,11 @@ pin 9 (gpio0-9): RK_PB1 ff180000.i2c (GPIO UNCLAIMED) function i2c0 group i2c0-x
 pin 10 (gpio0-10): RK_PB2 (MUX UNCLAIMED) (GPIO UNCLAIMED) //pmic_int / uart0-xfer               
 pin 11 (gpio0-11): RK_PB3 (MUX UNCLAIMED) (GPIO UNCLAIMED) //on other boards led / uart0-xfer                
 pin 12 (gpio0-12): RK_PB4 (MUX UNCLAIMED) (GPIO UNCLAIMED) //on other boards led / uart0-cts                
-pin 13 (gpio0-13): RK_PB5 vcc18_lcd0 gpio0:13 function vcc18-lcd group vcc18-lcd-n                 
+pin 13 (gpio0-13): RK_PB5 vcc18_lcd0 gpio0:13 function vcc18-lcd group vcc18-lcd-n // LCD enable              
 pin 14 (gpio0-14): RK_PB6 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 15 (gpio0-15): RK_PB7 (MUX UNCLAIMED) (GPIO UNCLAIMED) //not used function pwm0 group pwm0-pin            
 pin 16 (gpio0-16): RK_PC0 ff200010.pwm (GPIO UNCLAIMED) function pwm1 group pwm1-pin //Backlight brightness          
-pin 17 (gpio0-17): RK_PC1 gpio_leds (GPIO UNCLAIMED) function leds group led-pins //Red Led              
+pin 17 (gpio0-17): RK_PC1 gpio_leds gpio0:17 function leds group led-pins //Red Led              
 pin 18 (gpio0-18): RK_PC2 ff190000.i2c (GPIO UNCLAIMED) function i2c1 group i2c1-xfer                
 pin 19 (gpio0-19): RK_PC3 ff190000.i2c (GPIO UNCLAIMED) function i2c1 group i2c1-xfer                
 pin 20 (gpio0-20): RK_PC4 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
@@ -76,11 +76,11 @@ pin 72 (gpio2-8): RK_PB0 (MUX UNCLAIMED) (GPIO UNCLAIMED)
 pin 73 (gpio2-9): RK_PB1 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 74 (gpio2-10): RK_PB2 (MUX UNCLAIMED) (GPIO UNCLAIMED)                
 pin 75 (gpio2-11): RK_PB3 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
-pin 76 (gpio2-12): RK_PB4 (MUX UNCLAIMED) gpio2:76  //amux-en-gpios                  
+pin 76 (gpio2-12): RK_PB4 (odroidgo3-joypad gpio2:76 function btns group amux-pins  //amux-en-gpios                  
 pin 77 (gpio2-13): RK_PB5 odroidgo3-joypad gpio2:77 function btns group btn-pins                 
 pin 78 (gpio2-14): RK_PB6 odroidgo3-joypad gpio2:78 function btns group btn-pins                 
-pin 79 (gpio2-15): RK_PB7 (MUX UNCLAIMED) gpio2:79  //amux-b-gpios              
-pin 80 (gpio2-16): RK_PC0 (MUX UNCLAIMED) gpio2:80  //amux-a-gpios                  
+pin 79 (gpio2-15): RK_PB7 odroidgo3-joypad gpio2:79 function btns group amux-pins  //amux-b-gpios              
+pin 80 (gpio2-16): RK_PC0 odroidgo3-joypad gpio2:80 function btns group amux-pins  //amux-a-gpios                  
 pin 81 (gpio2-17): RK_PC1 ff070000.i2s (GPIO UNCLAIMED) function i2s1 group i2s1-2ch-lrck                
 pin 82 (gpio2-18): RK_PC2 ff070000.i2s (GPIO UNCLAIMED) function i2s1 group i2s1-2ch-sclk                
 pin 83 (gpio2-19): RK_PC3 rk817-codec (GPIO UNCLAIMED) function i2s1 group i2s1-2ch-mclk                
@@ -102,8 +102,8 @@ pin 98 (gpio3-2): RK_PA2 fiq-debugger (GPIO UNCLAIMED) function uart5 group uart
 pin 99 (gpio3-3): RK_PA3 (MUX UNCLAIMED) (GPIO UNCLAIMED)                 
 pin 100 (gpio3-4): RK_PA4 vcc_host gpio3:100 function vcc5-usb group vcc5-usb                 
 pin 101 (gpio3-5): RK_PA5 (MUX UNCLAIMED) gpio3:101 //dc_det_gpio               
-pin 102 (gpio3-6): RK_PA6 (MUX UNCLAIMED) gpio3:102 //Vibrator gpio                  
-pin 103 (gpio3-7): RK_PA7 (MUX UNCLAIMED) gpio3:103 //spk-ctl-gpio         
+pin 102 (gpio3-6): RK_PA6 odroidgo3-joypad gpio3:102 function btns group rumble-pin //Vibrator gpio                  
+pin 103 (gpio3-7): RK_PA7 (rk817-sound gpio3:103 function headphone group spk-ctl-pin //spk-ctl-gpio         
 pin 104 (gpio3-8): RK_PB0 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 105 (gpio3-9): RK_PB1 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 106 (gpio3-10): RK_PB2 odroidgo3-joypad gpio3:106 function btns group btn-pins                 

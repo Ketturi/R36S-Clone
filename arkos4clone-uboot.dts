@@ -990,7 +990,7 @@
 							3898 3941 3984 4027 4070 4113 4158>;
 				design_capacity = <3500>;//3380
 				design_qmax = <3718>;//3718
-				bat_res = <100>;
+				bat_res = <180>;
 				sleep_enter_current = <300>;
 				sleep_exit_current = <300>;
 				sleep_filter_current = <100>;
