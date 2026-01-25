@@ -702,7 +702,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <0x5a 0x5b 0x5c>;
 		status = "disabled";
-		clock-frequency = <0x1c200>;
+		//clock-frequency = <0x1c200>;
 	};
 
 	i2c@ff180000 {
@@ -977,7 +977,7 @@
 				};
 
 				OTG_SWITCH {
-					regulator-boot-on;
+					//regulator-boot-on; //never ever enable on R36S hardware!
 					regulator-name = "otg_switch";
 				};
 			};
@@ -1010,7 +1010,7 @@
 				max_chrg_current = <1750>;
 				max_chrg_voltage = <4200>;
 				chrg_term_mode = <0x00>;
-				chrg_finish_cur = <150>;
+				chrg_finish_cur = <300>;
 				virtual_power = <0x00>;
 				sample_res = <10>;
 				dc_det_gpio = <0x68 0x05 0x00>;
@@ -3025,7 +3025,7 @@
 		compatible = "rockchip,fiq-debugger";
 		rockchip,serial-id = <0x05>;
 		rockchip,wake-irq = <0x00>;
-		rockchip,irq-mode-enable = <0x00>;
+		rockchip,irq-mode-enable = <1>;
 		rockchip,baudrate = <1500000>;
 		interrupts = <0x00 0x7f 0x08>;
 		pinctrl-names = "default";

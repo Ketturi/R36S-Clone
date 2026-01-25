@@ -1,8 +1,8 @@
 Pinmux settings per pin                          
 Format: pin (name): mux_owner gpio_owner hog?                          
 pin 0 (gpio0-0): RK_PA0 gpio_leds gpio0:0 function leds group led-pins //Blue/Green Led               
-pin 1 (gpio0-1): RK_PA1 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
-pin 2 (gpio0-2): RK_PA2 (MUX UNCLAIMED) gpio0:2                    
+pin 1 (gpio0-1): RK_PA1 (MUX UNCLAIMED) (GPIO UNCLAIMED)  //Charge Led, missing resistor if 4056 is installed                 
+pin 2 (gpio0-2): RK_PA2 (MUX UNCLAIMED) gpio0:2  //SDio card detect                  
 pin 3 (gpio0-3): RK_PA3 ff370000.dwmmc gpio0:3 function sdmmc group sdmmc-det                 
 pin 4 (gpio0-4): RK_PA4 0-0020 (GPIO UNCLAIMED) function pmic group soc_slppin_rst                
 pin 5 (gpio0-5): RK_PA5 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
@@ -76,7 +76,7 @@ pin 72 (gpio2-8): RK_PB0 (MUX UNCLAIMED) (GPIO UNCLAIMED)
 pin 73 (gpio2-9): RK_PB1 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 74 (gpio2-10): RK_PB2 (MUX UNCLAIMED) (GPIO UNCLAIMED)                
 pin 75 (gpio2-11): RK_PB3 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
-pin 76 (gpio2-12): RK_PB4 (odroidgo3-joypad gpio2:76 function btns group amux-pins  //amux-en-gpios                  
+pin 76 (gpio2-12): RK_PB4 odroidgo3-joypad gpio2:76 function btns group amux-pins  //amux-en-gpios                  
 pin 77 (gpio2-13): RK_PB5 odroidgo3-joypad gpio2:77 function btns group btn-pins                 
 pin 78 (gpio2-14): RK_PB6 odroidgo3-joypad gpio2:78 function btns group btn-pins                 
 pin 79 (gpio2-15): RK_PB7 odroidgo3-joypad gpio2:79 function btns group amux-pins  //amux-b-gpios              
@@ -103,7 +103,7 @@ pin 99 (gpio3-3): RK_PA3 (MUX UNCLAIMED) (GPIO UNCLAIMED)
 pin 100 (gpio3-4): RK_PA4 vcc_host gpio3:100 function vcc5-usb group vcc5-usb                 
 pin 101 (gpio3-5): RK_PA5 (MUX UNCLAIMED) gpio3:101 //dc_det_gpio               
 pin 102 (gpio3-6): RK_PA6 odroidgo3-joypad gpio3:102 function btns group rumble-pin //Vibrator gpio                  
-pin 103 (gpio3-7): RK_PA7 (rk817-sound gpio3:103 function headphone group spk-ctl-pin //spk-ctl-gpio         
+pin 103 (gpio3-7): RK_PA7 rk817-sound gpio3:103 function headphone group spk-ctl-pin //spk-ctl-gpio         
 pin 104 (gpio3-8): RK_PB0 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 105 (gpio3-9): RK_PB1 (MUX UNCLAIMED) (GPIO UNCLAIMED)                   
 pin 106 (gpio3-10): RK_PB2 odroidgo3-joypad gpio3:106 function btns group btn-pins                 
