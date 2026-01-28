@@ -584,6 +584,13 @@
 			compatible = "arm,cortex-a35", "arm,armv8";
 			reg = <0x00 0x00>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
 			clocks = <&cru 0x07>;
 			#cooling-cells = <2>;
 			dynamic-power-coefficient = <90>;
@@ -598,6 +605,16 @@
 			compatible = "arm,cortex-a35", "arm,armv8";
 			reg = <0x00 0x01>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
+			//clocks = <&cru 0x07>;
+			//#cooling-cells = <2>;
+			//dynamic-power-coefficient = <90>;
 			operating-points-v2 = <&cpu0_opp_table>;
 			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
 			cpu-supply = <&vdd_arm>;
@@ -609,6 +626,16 @@
 			compatible = "arm,cortex-a35", "arm,armv8";
 			reg = <0x00 0x02>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
+			//clocks = <&cru 0x07>;
+			//#cooling-cells = <2>;
+			//dynamic-power-coefficient = <90>;
 			operating-points-v2 = <&cpu0_opp_table>;
 			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
 			cpu-supply = <&vdd_arm>;
@@ -620,10 +647,29 @@
 			compatible = "arm,cortex-a35", "arm,armv8";
 			reg = <0x00 0x03>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
+			//clocks = <&cru 0x07>;
+			//#cooling-cells = <2>;
+			//dynamic-power-coefficient = <90>;
 			operating-points-v2 = <&cpu0_opp_table>;
 			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
 			cpu-supply = <&vdd_arm>;
 			//phandle = <0x0c>;
+		};
+
+		l2_0: l2-cache {
+			compatible = "cache,arm,arch-cache";
+			cache-level = <2>;
+			cache-unified;
+			cache-size = <0x40000>;
+			cache-line-size = <64>;
+			cache-sets = <256>;
 		};
 
 		idle-states {
@@ -833,7 +879,7 @@
 
 	cpuinfo {
 		compatible = "rockchip,cpuinfo";
-		nvmem-cells = <0x0f>;
+		nvmem-cells = <&otp_id>;
 		nvmem-cell-names = "id";
 	};
 
@@ -1294,7 +1340,7 @@
 		phandle = <0xe3>;
 	};
 
-	/*UART3 and UART4 not used in RK3326
+	//UART3 and UART4 not used in RK3326
 	uart3: serial@ff168000 {
 		compatible = "rockchip,px30-uart", "snps,dw-apb-uart";
 		reg = <0x00 0xff168000 0x00 0x100>;
@@ -1323,7 +1369,7 @@
 		pinctrl-0 = <&uart4_xfer>;
 		status = "disabled";
 		phandle = <0xe5>;
-	};*/
+	};
 
 	uart5: serial@ff178000 { //Through hole pads. Do not enable if FIQ debugger not disabled/irq mode
 		compatible = "rockchip,px30-uart", "snps,dw-apb-uart";
@@ -1377,7 +1423,7 @@
 			vcc4-supply = <&vccsys>;  //DCDC_REG4
 			vcc5-supply = <&vccsys>;  //LDO_REG1, LDO_REG2, LDO_REG3
 			vcc6-supply = <&vccsys>;  //LDO_REG4, LDO_REG5, LDO_REG6
-			vcc7-supply = <&vcc_3v0>; //LDO_REG7, LDO_REG8, LDO_REG9
+			vcc7-supply = <&vccsys>; //LDO_REG7, LDO_REG8, LDO_REG9
 			vcc8-supply = <&vccsys>; //input supply for BOOST
 			vcc9-supply = <&dcdc_boost>; //input supply for OTG_SWITCH
 	
@@ -1477,7 +1523,7 @@
 					};
 				};
 
-				vcc_3v0: DCDC_REG4 {//IO4, IO5, LDO7-9, LCD18 LCD28, Rumble motor
+				vcc_3v0: DCDC_REG4 {//IO4, IO5, LDO7-9, LCD1.8v, LCD2.8v, Rumble motor
 					regulator-always-on;
 					regulator-boot-on;
 					regulator-min-microvolt = <3000000>;
@@ -1669,7 +1715,7 @@
 				compatible = "rk817,charger";
 				min_input_voltage = <4500>;
 				max_input_current = <1500>;//800 for usb3, 1500 for charge only port
-				max_chrg_current = <1000>;//800 should take 4056 into account
+				max_chrg_current = <800>;//800 should take 4056 into account
 				max_chrg_voltage = <4200>;
 				chrg_term_mode = <0>; //0 Analog 1 Digital
 				chrg_finish_cur = <300>;
@@ -1813,7 +1859,7 @@
 		phandle = <0xc4>;
 	};
 
-	/*Only 2 PWM in RK3326
+	//Only 2 PWM in RK3326
 	pwm2: pwm@ff200020 { //pwm2
 		compatible = "rockchip,px30-pwm", "rockchip,rk3328-pwm";
 		reg = <0x00 0xff200020 0x00 0x10>;
@@ -1884,7 +1930,7 @@
 		clock-names = "pwm", "pclk";
 		status = "disabled";
 		phandle = <0xff>;
-	};*/
+	};
 
 	rktimer: rktimer@ff210000 {
 		compatible = "rockchip,rk3288-timer";
@@ -1966,6 +2012,34 @@
 			polling-delay-passive = <100>;
 			polling-delay = <1000>;
 			thermal-sensors = <&tsadc 1>;
+			
+			
+			trips {
+				gpu_threshold: gpu-threshold {
+					temperature = <70000>;
+					hysteresis = <2000>;
+					type = "passive";
+				};
+
+				gpu_target: gpu-target {
+					temperature = <85000>;
+					hysteresis = <2000>;
+					type = "passive";
+				};
+
+				gpu_crit: gpu-crit {
+					temperature = <115000>;
+					hysteresis = <2000>;
+					type = "critical";
+				};
+			};
+
+			cooling-maps {
+				map0 {
+					trip = <&gpu_target>;
+					cooling-device = <&gpu 0xffffffff 0xffffffff>;
+				};
+			};
 		};
 	};
 
@@ -1982,10 +2056,10 @@
 		reset-names = "tsadc-apb";
 		#thermal-sensor-cells = <1>;
 		rockchip,hw-tshut-temp = <120000>;
-		//rockchip,hw-tshut-mode = <1>;
-		//rockchip,hw-tshut-polarity = <0>;
+		rockchip,hw-tshut-mode = <1>;
+		rockchip,hw-tshut-polarity = <0>;
 		status = "okay";
-		pinctrl-names = "gpio", "otpout";
+		pinctrl-names = "gpio", "otpout";//init, default, sleep
 		pinctrl-0 = <&tsadc_otp_gpio>;
 		pinctrl-1 = <&tsadc_otp_out>;
 		pinctrl-2 = <&tsadc_otp_gpio>;
@@ -2038,21 +2112,24 @@
 		rockchip,boost = <&cpu_boost>;
 		#clock-cells = <1>;
 		#reset-cells = <1>;
-		assigned-clocks = <&cru 0x04>; //PLL_NPLL
-		assigned-clock-rates = <1040000000>;
+		//assigned-clocks = <&cru 0x04>; //PLL_NPLL
+		//assigned-clock-rates = <1040000000>;
+		//assigned-clocks = <&cru 4>;
+
+		//assigned-clock-rates = <1188000000>; //also patched off in aosp kernel? Uboot sets this?
 		//phandle = <0x02>;
 	};
 
 	cpu_boost: cpu-boost@ff2b8000 {
 		compatible = "syscon";
 		reg = <0x00 0xff2b8000 0x00 0x1000>;
-		rockchip,boost-low-con0 = <0x1032>;
-		rockchip,boost-low-con1 = <0x1441>;
-		rockchip,boost-high-con0 = <0x1036>;
-		rockchip,boost-high-con1 = <0x1441>;
+		rockchip,boost-low-con0 = <4146>;
+		rockchip,boost-low-con1 = <5185>;
+		rockchip,boost-high-con0 = <4150>;
+		rockchip,boost-high-con1 = <5185>;
 		rockchip,boost-backup-pll = <0x01>;
 		rockchip,boost-backup-pll-usage = <0x00>;
-		rockchip,boost-switch-threshold = <0x249f00>;
+		rockchip,boost-switch-threshold = <2400000>;
 		rockchip,boost-statis-threshold = <0x100>;
 		rockchip,boost-statis-enable = <0x00>;
 		rockchip,boost-enable = <0x00>;
@@ -2061,11 +2138,19 @@
 	pmucru: pmu-clock-controller@ff2bc000 {
 		compatible = "rockchip,px30-pmucru";
 		reg = <0x00 0xff2bc000 0x00 0x1000>;
+		clocks = <&xin24m>;
+		clock-names = "xin24m";
 		rockchip,grf = <&grf>;
 		#clock-cells = <1>;
 		#reset-cells = <1>;
+		//assigned-clocks = <&pmucru PLL_GPLL>, <&pmucru PCLK_PMU_PRE>, <&pmucru SCLK_WIFI_PMU>, <&cru ARMCLK>, <&cru ACLK_BUS_PRE>, <&cru ACLK_PERI_PRE>, <&cru HCLK_BUS_PRE>, <&cru HCLK_PERI_PRE>, <&cru PCLK_BUS_PRE>, <&cru SCLK_GPU>;
+		
 		assigned-clocks = <&pmucru 0x01>, <&pmucru 0x08>, <&pmucru 0x05>, <&cru 0x07>, <&cru 0xab>, <&cru 0xb0>, <&cru 0xf0>, <&cru 0xf5>, <&cru 0x140>, <&cru 0x49>;
-		assigned-clock-rates = <1200000000 100000000 26000000 600000000 200000000 200000000 150000000 150000000 100000000 200000000>;
+		assigned-clock-rates = <1200000000>, <100000000>, 
+							   <26000000>, <600000000>,
+							   <200000000>, <200000000>,
+							   <150000000>, <150000000>, 
+							   <100000000>, <200000000>;
 	};
 
 	usb2phy_grf: syscon@ff2c0000 {
@@ -2149,6 +2234,8 @@
 		g-use-dma;
 		phys = <&u2phy_otg>;
 		phy-names = "usb2-phy";
+		vusb_d-supply = <&vcc1v0_soc>;
+		vusb_a-supply = <&vcc1v8_soc>;
 		status = "okay";
 	};
 
@@ -2483,9 +2570,11 @@
 			reg = <0>;
 			backlight = <&backlight>;
 			backlight-supply = <&vcc_bl_boost>;
-			power-supply = <&vcc18_lcd0>;
+			power-supply = <&vcc28_lcd0>;
+			iovcc-supply = <&vcc18_lcd0>;
+			//vcc-supply = <&vcc28_lcd0>;
 			reset-gpios = <&gpio3 15 0x01>;
-			enable-gpios = <&gpio0 13 0x00>; //handled by vcc18-lcd regulator
+			//enable-gpios = <&gpio0 13 0x00>; //handled by vcc18-lcd regulator
 			prepare-delay-ms = <20>;
 			reset-delay-ms = <20>;
 			init-delay-ms = <20>;
@@ -4108,7 +4197,7 @@
 		bootargs = [00];
 	};
 
-	fiq-debugger {
+	fiq-debugger { //output at wrong baud rate? Wrong system clock speeds?
 		compatible = "rockchip,fiq-debugger";
 		rockchip,serial-id = <5>;
 		rockchip,wake-irq = <0x00>;
@@ -4344,7 +4433,7 @@
 		};
 		
 		charger {
-			label = "orange:charge";
+			label = "orange:charger";
 			gpios = <&gpio0 0x01 0>;
 		};
 	};
@@ -4444,14 +4533,13 @@
 		//gpio = <&gpio0 13 0x00>;
 		//pinctrl-0 = <&vcc18_lcd_n>; //LCD enable
 		//pinctrl-names = "default";
-		//enable-active-high;
+		enable-active-high;
 		regulator-boot-on;
 		vin-supply = <&vcc_3v0>;
-		//phandle = <0xa4>;
 
-		//regulator-state-mem {
-		//	regulator-off-in-suspend;
-		//};
+		regulator-state-mem {
+			regulator-off-in-suspend;
+		};
 	};
 	
 	/*LCD vcc voltage, 2.8v LDO from vcc_3v0*/
@@ -4460,17 +4548,16 @@
 		regulator-name = "vcc28_lcd0_n";
 		regulator-min-microvolt = <2800000>;
 		regulator-max-microvolt = <2800000>;
-		//gpio = <&gpio0 13 0x00>; //LCD enable
-		//pinctrl-0 = <&vcc18_lcd_n>;
-		//pinctrl-names = "default";
-		//enable-active-high;
+		gpio = <&gpio0 13 0x00>; //LCD enable
+		pinctrl-0 = <&vcc18_lcd_n>;
+		pinctrl-names = "default";
+		enable-active-high;
 		regulator-boot-on;
 		vin-supply = <&vcc_3v0>;
-		//phandle = <0xa4>;
 
-		//regulator-state-mem {
-		//	regulator-off-in-suspend;
-		//};
+		regulator-state-mem {
+			regulator-off-in-suspend;
+		};
 	};
 	
 	/*Boost converter for backlight string, pwm controlled*/
@@ -4603,6 +4690,7 @@
 		target = "/thermal-zones/soc-thermal/trips/trip-point-1";
 		soc_crit = "/thermal-zones/soc-thermal/trips/soc-crit";
 		gpu_thermal = "/thermal-zones/gpu-thermal";
+		gpu_target = "/thermal-zones/gpu-thermal/trips/gpu-target";
 		tsadc = "/tsadc@ff280000";
 		saradc = "/saradc@ff288000";
 		otp = "/otp@ff290000";

@@ -27,7 +27,7 @@
 		#address-cells = <0x02>;
 		#size-cells = <0x00>;
 
-		cpu@0 {
+		cpu@0 {//256KB unified system L2 cache, Integrated 32KB L1 instruction cache, 32KB L1 data cache with 4-way set associative
 			device_type = "cpu";
 			compatible = "arm,cortex-a35\0arm,armv8";
 			reg = <0x00 0x00>;
@@ -39,6 +39,7 @@
 			cpu-idle-states = <0x04 0x05>;
 			cpu-supply = <0x06>;
 			phandle = <0x09>;
+
 		};
 
 		cpu@1 {
@@ -1353,7 +1354,7 @@
 		#clock-cells = <0x01>;
 		#reset-cells = <0x01>;
 		assigned-clocks = <0x02 0x04>;
-		assigned-clock-rates = <0x3dfd2400>;
+		assigned-clock-rates = <1188000000>;//1040000000
 		phandle = <0x02>;
 	};
 
@@ -1380,7 +1381,7 @@
 		#clock-cells = <0x01>;
 		#reset-cells = <0x01>;
 		assigned-clocks = <0x2a 0x01 0x2a 0x08 0x2a 0x05 0x02 0x07 0x02 0xab 0x02 0xb0 0x02 0xf0 0x02 0xf5 0x02 0x140 0x02 0x49>;
-		assigned-clock-rates = <0x47868c00 0x5f5e100 0x18cba80 0x23c34600 0xbebc200 0xbebc200 0x8f0d180 0x8f0d180 0x5f5e100 0xbebc200>;
+		assigned-clock-rates = <1200000000 100000000 26000000 600000000 200000000 200000000 150000000 150000000 100000000 200000000>;
 		phandle = <0x2a>;
 	};
 
