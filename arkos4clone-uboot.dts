@@ -26,12 +26,35 @@
 	cpus {
 		#address-cells = <0x02>;
 		#size-cells = <0x00>;
+		cpu-map {
+			cluster0 {	/* Cortex-A35 */
+					core0 {
+						cpu = <0x09>;
+					};
+					core1 {
+						cpu = <0x0a>;
+					};
+					core2 {
+						cpu = <0x0b>;
+					};
+					core3 {
+						cpu = <0x0c>;
+					};
+			};
+		};
 
-		cpu@0 {//256KB unified system L2 cache, Integrated 32KB L1 instruction cache, 32KB L1 data cache with 4-way set associative
+		cpu@0 {
 			device_type = "cpu";
 			compatible = "arm,cortex-a35\0arm,armv8";
 			reg = <0x00 0x00>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
 			clocks = <0x02 0x07>;
 			#cooling-cells = <0x02>;
 			dynamic-power-coefficient = <0x5a>;
@@ -47,6 +70,13 @@
 			compatible = "arm,cortex-a35\0arm,armv8";
 			reg = <0x00 0x01>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
 			operating-points-v2 = <0x03>;
 			cpu-idle-states = <0x04 0x05>;
 			phandle = <0x0a>;
@@ -57,6 +87,13 @@
 			compatible = "arm,cortex-a35\0arm,armv8";
 			reg = <0x00 0x02>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
 			operating-points-v2 = <0x03>;
 			cpu-idle-states = <0x04 0x05>;
 			phandle = <0x0b>;
@@ -67,9 +104,25 @@
 			compatible = "arm,cortex-a35\0arm,armv8";
 			reg = <0x00 0x03>;
 			enable-method = "psci";
+			i-cache-size = <0x8000>;
+			i-cache-line-size = <64>;
+			i-cache-sets = <256>;
+			d-cache-size = <0x8000>;
+			d-cache-line-size = <64>;
+			d-cache-sets = <128>;
+			next-level-cache = <&l2_0>;
 			operating-points-v2 = <0x03>;
 			cpu-idle-states = <0x04 0x05>;
 			phandle = <0x0c>;
+		};
+		
+		l2_0: l2-cache {
+			compatible = "cache,arm,arch-cache";
+			cache-level = <2>;
+			cache-unified;
+			cache-size = <0x40000>;
+			cache-line-size = <64>;
+			cache-sets = <256>;
 		};
 
 		idle-states {
@@ -695,8 +748,12 @@
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff178000 0x00 0x100>;
 		interrupts = <0x00 0x14 0x04>;
+		clock-frequency = <24000000>;
 		clocks = <0x02 0x1c 0x02 0x14d>;
 		clock-names = "baudclk\0apb_pclk";
+		assigned-clocks = <0x02 28>;//SCLK_UART5
+		assigned-clock-parents = <0x02 1>;//PLL_GPLL,XIN24M
+		assigned-clock-rates = <24000000>;
 		reg-shift = <0x02>;
 		reg-io-width = <0x04>;
 		dmas = <0x2b 0x0a 0x2b 0x0b>;
@@ -1380,8 +1437,8 @@
 		rockchip,grf = <0x2f>;
 		#clock-cells = <0x01>;
 		#reset-cells = <0x01>;
-		assigned-clocks = <0x2a 0x01 0x2a 0x08 0x2a 0x05 0x02 0x07 0x02 0xab 0x02 0xb0 0x02 0xf0 0x02 0xf5 0x02 0x140 0x02 0x49>;
-		assigned-clock-rates = <1200000000 100000000 26000000 600000000 200000000 200000000 150000000 150000000 100000000 200000000>;
+		assigned-clocks = <0x2a 0x01 0x2a 0x08 0x2a 0x05 0x02 0x07 0x02 0xab 0x02 0xb0 0x02 0xf0 0x02 0xf5 0x02 0x140 0x02 0x49 0x02 28>;
+		assigned-clock-rates = <1200000000 100000000 26000000 600000000 200000000 200000000 150000000 150000000 100000000 200000000 24000000>;
 		phandle = <0x2a>;
 	};
 
@@ -1511,6 +1568,7 @@
 		clock-names = "biu\0ciu\0ciu-drv\0ciu-sample";
 		assigned-clocks = <0x02 0x3b>;
 		assigned-clock-parents = <0x02 0x57>;
+		rockchip,default-sample-phase = <203>;
 		power-domains = <0x8b 0x07>;
 		fifo-depth = <0x100>;
 		interrupts = <0x00 0x36 0x04>;
@@ -1540,6 +1598,7 @@
 		clock-names = "biu\0ciu\0ciu-drv\0ciu-sample";
 		assigned-clocks = <0x02 0x38>;
 		assigned-clock-parents = <0x02 0x51>;
+		rockchip,default-sample-phase = <190>;
 		power-domains = <0x8b 0x0a>;
 		fifo-depth = <0x100>;
 		interrupts = <0x00 0x37 0x04>;

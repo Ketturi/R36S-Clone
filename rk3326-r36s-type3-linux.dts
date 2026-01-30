@@ -578,8 +578,24 @@
 	cpus {
 		#address-cells = <2>;
 		#size-cells = <0>;
-
-		cpu0: cpu@0 {
+		cpu-map {
+			cluster0 {	/* Cortex-A35 */
+					core0 {
+						cpu = <&cpu0>;
+					};
+					core1 {
+						cpu = <&cpu1>;
+					};
+					core2 {
+						cpu = <&cpu2>;
+					};
+					core3 {
+						cpu = <&cpu3>;
+					};
+			};
+		};
+		
+		cpu0: cpu@0 {//256KB unified system L2 cache, Integrated 32KB L1 instruction cache, 32KB L1 data cache with 4-way set associative
 			device_type = "cpu";
 			compatible = "arm,cortex-a35", "arm,armv8";
 			reg = <0x00 0x00>;
@@ -1375,8 +1391,12 @@
 		compatible = "rockchip,px30-uart", "snps,dw-apb-uart";
 		reg = <0x00 0xff178000 0x00 0x100>;
 		interrupts = <0x00 20 0x04>;
+		clock-frequency = <24000000>;
 		clocks = <&cru 28>, <&cru 333>; //<&cru SCLK_UART5>, <&cru PCLK_UART5>;
 		clock-names = "baudclk", "apb_pclk";
+		assigned-clocks = <&cru 28>;//SCLK_UART5
+		assigned-clock-parents = <&cru 1>;//PLL_GPLL,XIN24M
+		assigned-clock-rates = <24000000>;
 		reg-shift = <2>;
 		reg-io-width = <4>;
 		dmas = <&dmac 10>, <&dmac 11>;
@@ -2145,12 +2165,13 @@
 		#reset-cells = <1>;
 		//assigned-clocks = <&pmucru PLL_GPLL>, <&pmucru PCLK_PMU_PRE>, <&pmucru SCLK_WIFI_PMU>, <&cru ARMCLK>, <&cru ACLK_BUS_PRE>, <&cru ACLK_PERI_PRE>, <&cru HCLK_BUS_PRE>, <&cru HCLK_PERI_PRE>, <&cru PCLK_BUS_PRE>, <&cru SCLK_GPU>;
 		
-		assigned-clocks = <&pmucru 0x01>, <&pmucru 0x08>, <&pmucru 0x05>, <&cru 0x07>, <&cru 0xab>, <&cru 0xb0>, <&cru 0xf0>, <&cru 0xf5>, <&cru 0x140>, <&cru 0x49>;
+		assigned-clocks = <&pmucru 0x01>, <&pmucru 0x08>, <&pmucru 0x05>, <&cru 0x07>, <&cru 0xab>, <&cru 0xb0>, <&cru 0xf0>, <&cru 0xf5>, <&cru 0x140>, <&cru 0x49>, <&cru 28>;
 		assigned-clock-rates = <1200000000>, <100000000>, 
 							   <26000000>, <600000000>,
 							   <200000000>, <200000000>,
 							   <150000000>, <150000000>, 
-							   <100000000>, <200000000>;
+							   <100000000>, <200000000>,
+							   <24000000>;
 	};
 
 	usb2phy_grf: syscon@ff2c0000 {
@@ -2288,6 +2309,7 @@
 		clock-names = "biu", "ciu", "ciu-drv", "ciu-sample";
 		assigned-clocks = <&cru 0x3b>;
 		assigned-clock-parents = <&cru 0x57>;
+		rockchip,default-sample-phase = <203>;
 		power-domains = <&power 0x07>;
 		fifo-depth = <0x100>;
 		interrupts = <0x00 0x36 0x04>;
@@ -2318,6 +2340,7 @@
 		clock-names = "biu", "ciu", "ciu-drv", "ciu-sample";
 		assigned-clocks = <&cru 0x38>;
 		assigned-clock-parents = <&cru 0x51>;
+		rockchip,default-sample-phase = <190>;
 		power-domains = <&power 0x0a>;
 		fifo-depth = <0x100>;
 		interrupts = <0x00 0x37 0x04>;
