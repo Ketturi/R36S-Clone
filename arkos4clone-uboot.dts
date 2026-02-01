@@ -748,12 +748,12 @@
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff178000 0x00 0x100>;
 		interrupts = <0x00 0x14 0x04>;
-		clock-frequency = <24000000>;
+		//clock-frequency = <24000000>;
 		clocks = <0x02 0x1c 0x02 0x14d>;
 		clock-names = "baudclk\0apb_pclk";
-		assigned-clocks = <0x02 28>;//SCLK_UART5
-		assigned-clock-parents = <0x02 1>;//PLL_GPLL,XIN24M
-		assigned-clock-rates = <24000000>;
+		//assigned-clocks = <0x02 28>;//SCLK_UART5
+		//assigned-clock-parents = <0x02 1>;//PLL_GPLL,XIN24M
+		//assigned-clock-rates = <24000000>;
 		reg-shift = <0x02>;
 		reg-io-width = <0x04>;
 		dmas = <0x2b 0x0a 0x2b 0x0b>;
@@ -3085,7 +3085,7 @@
 		compatible = "rockchip,fiq-debugger";
 		rockchip,serial-id = <0x05>;
 		rockchip,wake-irq = <0x00>;
-		rockchip,irq-mode-enable = <1>;
+		rockchip,irq-mode-enable = <0>;
 		rockchip,baudrate = <1500000>;
 		interrupts = <0x00 0x7f 0x08>;
 		pinctrl-names = "default";

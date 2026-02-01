@@ -716,7 +716,7 @@
 	cpu0_opp_table: cpu0-opp-table {
 		compatible = "operating-points-v2";
 		opp-shared;
-		rockchip,temp-hysteresis = <0x1388>;
+		rockchip,temp-hysteresis = <5000>;
 		rockchip,low-temp = <0x00>;
 		rockchip,low-temp-min-volt = <1000000>;
 		rockchip,low-temp-adjust-volt = <0x00 0x5e8 0xc350>;
@@ -726,10 +726,10 @@
 		rockchip,evb-irdrop = <25000>;
 		nvmem-cells = <&cpu_leakage &performance>;
 		nvmem-cell-names = "cpu_leakage", "performance";
-		/* bin scaling clock 1.296MHz */
+		/* bin scaling clock 1.296GHz */
 		rockchip,bin-scaling-sel = <0 13 1 13>;// 0x02 0x12>;
 		rockchip,pvtm-voltage-sel = <0x00 0xc350 0x00 0xc351 0xd2f0 0x01 0xd2f1 0xea60 0x02 0xea61 0x1869f 0x03>;
-		rockchip,pvtm-freq = <0x639c0>;
+		rockchip,pvtm-freq = <408000>;
 		rockchip,pvtm-volt = <1000000>;
 		rockchip,pvtm-ch = <0x00 0x00>;
 		rockchip,pvtm-sample-time = <0x3e8>;
@@ -742,7 +742,7 @@
 		//phandle = <0x03>;
 
 		opp-408000000 {
-			opp-hz = <0x00 0x18519600>;
+			opp-hz = <0x00 408000000>;
 			opp-microvolt = <950000 950000 1350000>;
 			opp-microvolt-L0 = <950000 950000 1350000>;
 			opp-microvolt-L1 = <950000 950000 1350000>;
@@ -753,7 +753,7 @@
 		};
 
 		opp-600000000 {
-			opp-hz = <0x00 0x23c34600>;
+			opp-hz = <0x00 600000000>;
 			opp-microvolt = <950000 950000 1350000>;
 			opp-microvolt-L0 = <950000 950000 1350000>;
 			opp-microvolt-L1 = <950000 950000 1350000>;
@@ -773,9 +773,9 @@
 		};*/
 
 		opp-1008000000 {
-			opp-hz = <0x00 0x3c14dc00>;
-			opp-microvolt = <0x11edd8 0x11edd8 1350000>;
-			opp-microvolt-L0 = <0x11edd8 0x11edd8 1350000>;
+			opp-hz = <0x00 1008000000>;
+			opp-microvolt = <1175000 1175000 1350000>;
+			opp-microvolt-L0 = <1175000 1175000 1350000>;
 			opp-microvolt-L1 = <1125000 1125000 1350000>;
 			opp-microvolt-L2 = <1125000 1125000 1350000>;
 			opp-microvolt-L3 = <1050000 1050000 1350000>;
@@ -783,7 +783,7 @@
 		};
 
 		opp-1200000000 {
-			opp-hz = <0x00 0x47868c00>;
+			opp-hz = <0x00 1200000000>;
 			opp-microvolt = <1300000 1300000 1350000>;
 			opp-microvolt-L0 = <1300000 1300000 1350000>;
 			opp-microvolt-L1 = <1275000 1275000 1350000>;
@@ -793,7 +793,7 @@
 		};
 
 		/*opp-1248000000 { //disabled? unstable?
-			opp-hz = <0x00 0x4a62f800>;
+			opp-hz = <0x00 1248000000>;
 			opp-microvolt = <1350000 1350000 1350000>;
 			opp-microvolt-L0 = <1350000 1350000 1350000>;
 			opp-microvolt-L1 = <1300000 1300000 1350000>;
@@ -803,7 +803,7 @@
 		};*/
 
 		opp-1296000000 {
-			opp-hz = <0x00 0x4d3f6400>;
+			opp-hz = <0x00 1296000000>;
 			opp-microvolt = <1350000 1350000 1350000>;
 			opp-microvolt-L0 = <1350000 1350000 1350000>;
 			opp-microvolt-L1 = <1350000 1350000 1350000>;
@@ -813,7 +813,7 @@
 		};
 
 		opp-1416000000 {
-			opp-hz = <0x00 0x54667200>;
+			opp-hz = <0x00 1416000000>;
 			opp-microvolt = <1350000 1350000 1350000>;
 			opp-microvolt-L0 = <1350000 1350000 1350000>;
 			opp-microvolt-L1 = <1350000 1350000 1350000>;
@@ -823,7 +823,7 @@
 		};
 
 		opp-1512000000 {
-			opp-hz = <0x00 0x5a1f4a00>;
+			opp-hz = <0x00 1512000000>;
 			opp-microvolt = <1350000 1350000 1350000>;
 			opp-microvolt-L0 = <1350000 1350000 1350000>;
 			opp-microvolt-L1 = <1350000 1350000 1350000>;
@@ -1114,7 +1114,7 @@
 		pmu_pvtm: pmu-pvtm {
 			compatible = "rockchip,px30-pmu-pvtm";
 			clocks = <&pmucru 0x07>;
-			clock-names = "pmu";
+			clock-names = "pmu";//pmu -> pvtm
 			status = "okay";
 			//phandle = <0xd6>;
 		};
@@ -1391,12 +1391,12 @@
 		compatible = "rockchip,px30-uart", "snps,dw-apb-uart";
 		reg = <0x00 0xff178000 0x00 0x100>;
 		interrupts = <0x00 20 0x04>;
-		clock-frequency = <24000000>;
+		//clock-frequency = <24000000>;
 		clocks = <&cru 28>, <&cru 333>; //<&cru SCLK_UART5>, <&cru PCLK_UART5>;
 		clock-names = "baudclk", "apb_pclk";
-		assigned-clocks = <&cru 28>;//SCLK_UART5
-		assigned-clock-parents = <&cru 1>;//PLL_GPLL,XIN24M
-		assigned-clock-rates = <24000000>;
+		//assigned-clocks = <&cru 28>;//SCLK_UART5
+		//assigned-clock-parents = <&cru 1>;//PLL_GPLL,XIN24M
+		//assigned-clock-rates = <24000000>;
 		reg-shift = <2>;
 		reg-io-width = <4>;
 		dmas = <&dmac 10>, <&dmac 11>;
@@ -1421,12 +1421,13 @@
 		clock-frequency = <400000>;
 		i2c-scl-rising-time-ns = <0x118>;
 		i2c-scl-falling-time-ns = <0x10>;
+		pm-disable;
 
 		rk817: pmic@20 {
 			compatible = "rockchip,rk817";
 			reg = <0x20>;
 			interrupt-parent = <&gpio0>;
-			interrupts = <0x0a 0x08>;
+			interrupts = <10 0x08>; //pmic_int gpio0, IRQ_TYPE_LEVEL_LOW
 			pinctrl-names = "default", "pmic-sleep", "pmic-power-off", "pmic-reset";
 			pinctrl-0 = <&pmic_int>;
 			pinctrl-1 = <&soc_slppin_slp>, <&rk817_slppin_slp>;
@@ -1503,9 +1504,9 @@
 					regulator-always-on;
 					regulator-boot-on;
 					system-critical-regulator;
-					regulator-min-microvolt = <950000>; 
+					regulator-min-microvolt = <850000>; //950000
 					regulator-max-microvolt = <1150000>; //1.15V Abs max
-					regulator-ramp-delay = <0x1771>;
+					regulator-ramp-delay = <6001>;
 					regulator-initial-mode = <0x02>;
 					regulator-name = "vdd_logic";//GPU and core logic 0.9-1.10
 
@@ -1519,9 +1520,9 @@
 					regulator-always-on;
 					regulator-boot-on;
 					system-critical-regulator;
-					regulator-min-microvolt = <950000>;
+					regulator-min-microvolt = <850000>;//950000
 					regulator-max-microvolt = <1350000>; //1.40V Abs max
-					regulator-ramp-delay = <0x1771>;
+					regulator-ramp-delay = <6001>;
 					regulator-initial-mode = <0x02>;
 					regulator-name = "vdd_arm";//CPU 0.95-1.35
 
@@ -1616,7 +1617,7 @@
 					regulator-boot-on;
 					regulator-min-microvolt = <1800000>;
 					regulator-max-microvolt = <3300000>;//3300000
-					regulator-ramp-delay = <0x1771>;
+					regulator-ramp-delay = <6001>;
 					regulator-name = "vccio_sd";
 
 					regulator-state-mem {
@@ -1628,7 +1629,7 @@
 				vcc_sd: LDO_REG6 { //Power for TF1, 3.3V
 					regulator-min-microvolt = <3300000>;//3300000
 					regulator-max-microvolt = <3300000>;//3300000
-					regulator-ramp-delay = <0x1771>;
+					regulator-ramp-delay = <6001>;
 					regulator-always-on;
 					regulator-boot-on;
 					regulator-name = "vcc_sd";
@@ -1644,7 +1645,7 @@
 					regulator-boot-on;
 					regulator-min-microvolt = <1800000>;
 					regulator-max-microvolt = <3300000>;
-					regulator-ramp-delay = <0x1771>;
+					regulator-ramp-delay = <6001>;
 					//regulator-init-microvolt = <3000000>;
 					regulator-name = "vccio_mmc";
 
@@ -1685,7 +1686,7 @@
 					regulator-boot-on;
 					regulator-min-microvolt = <5000000>;
 					regulator-max-microvolt = <5400000>;
-					regulator-ramp-delay = <0x1771>;
+					regulator-ramp-delay = <6001>;
 					regulator-name = "boost";
 
 					regulator-state-mem {
@@ -1747,7 +1748,7 @@
 				//extcon = <&usb_extcon_charge>; 
 				extcon = <&u2phy>; //usb2 phy is not a charging port, otg only. Disable the extcon!
 				//extcon = <>;     //rk817_charge_dc_det_worker likes to switch boost off and glitch usb
-				power_dc2otg = <1>; //DC is connected to OTG/USBIN of RK817, so keep the OTG_SWITCH OFF!
+				power_dc2otg = <0>; //DC is connected to OTG/USBIN of RK817, so keep the OTG_SWITCH OFF!
 				otg5v_suspend_enable = <0>;
 			};
 
@@ -2418,13 +2419,13 @@
 		reg = <0x00 0xff400000 0x00 0x4000>;
 		interrupts = <0x00 0x2d 0x04 0x00 0x2e 0x04 0x00 0x2f 0x04>;
 		interrupt-names = "GPU", "MMU", "JOB";
-		clocks = <&cru 0x49>;
-		clock-names = "clk_mali";
+		clocks = <&cru 0x49>, <&cru 170>;
+		clock-names = "clk_mali", "aclk_mali";
 		power-domains = <&power 0x0e>;
 		#cooling-cells = <2>;
 		operating-points-v2 = <&gpu_opp_table>;
 		status = "okay";
-		mali-supply = <&vdd_logic>;
+		mali-supply = <&vdd_logic>; //driver is not happy about vdd_logic for some reason
 
 		power_model {
 			compatible = "arm,mali-simple-power-model";
@@ -2437,7 +2438,7 @@
 
 	gpu_opp_table: gpu-opp-table {
 		compatible = "operating-points-v2";
-		rockchip,thermal-zone = "soc-thermal";
+		rockchip,thermal-zone = <&soc_thermal>;
 		rockchip,temp-hysteresis = <5000>;
 		rockchip,low-temp = <0x00>;
 		rockchip,low-temp-min-volt = <1000000>;
@@ -2520,8 +2521,8 @@
 		subcnt = <0x02>;
 		rockchip,grf = <&grf>;
 		rockchip,sub = <&vpu &hevc>;
-		clocks = <&cru 0xaf>, <&cru 0xf4>, <&cru 0x4b>;
-		clock-names = "aclk_vcodec", "hclk_vcodec", "clk_core";
+		clocks = <&cru 0xaf>, <&cru 0xf4>, <&cru 0x4b>, <&cru 0x4b>;
+		clock-names = "aclk_vcodec", "hclk_vcodec", "clk_core", "clk_cabac";//Core and Cabac are same
 		resets = <&cru 0x24>, <&cru 0x26>, <&cru 0x25>, <&cru 0x27>, <&cru 0x3f>;
 		reset-names = "video_a", "video_h", "niu_a", "niu_h", "video_core";
 		power-domains = <&power 0x0b>;
@@ -2536,8 +2537,8 @@
 		reg = <0x00 0xff440440 0x00 0x40 0x00 0xff440480 0x00 0x40>;
 		interrupts = <0x00 0x32 0x04>;
 		interrupt-names = "hevc_mmu";
-		clocks = <&cru 0xaf>, <&cru 0xf4>;
-		clock-names = "aclk", "hclk";
+		clocks = <&cru 0xaf>, <&cru 0xf4>, <&cru 75>;
+		clock-names = "aclk", "hclk", "sclk";
 		power-domains = <&power 0x0b>;
 		#iommu-cells = <0>;
 	};
@@ -2547,8 +2548,8 @@
 		reg = <0x00 0xff442800 0x00 0x100>;
 		interrupts = <0x00 0x51 0x04>;
 		interrupt-names = "vpu_mmu";
-		clocks = <&cru 0xaf>, <&cru 0xf4>;
-		clock-names = "aclk", "hclk";
+		clocks = <&cru 0xaf>, <&cru 0xf4>, <&cru 75>;
+		clock-names = "aclk", "hclk", "sclk";
 		power-domains = <&power 0x0b>;
 		#iommu-cells = <0>;
 	};
@@ -2598,19 +2599,23 @@
 			//vcc-supply = <&vcc28_lcd0>;
 			reset-gpios = <&gpio3 15 0x01>;
 			//enable-gpios = <&gpio0 13 0x00>; //handled by vcc18-lcd regulator
-			prepare-delay-ms = <20>;
-			reset-delay-ms = <20>;
-			init-delay-ms = <20>;
-			enable-delay-ms = <120>;
-			disable-delay-ms = <20>;
-			unprepare-delay-ms = <20>;
+			prepare-delay-ms = <50>;
+			reset-delay-ms = <50>;
+			init-delay-ms = <50>;
+			enable-delay-ms = <150>;
+			disable-delay-ms = <50>;
+			unprepare-delay-ms = <50>;
 			width-mm = <153>;
 			height-mm = <85>;
 			dsi,flags = <0xa03>;
 			dsi,format = <0>;
 			dsi,lanes = <4>;
 			panel-init-sequence = [15 00 02 ff 30 15 00 02 ff 52 15 00 02 ff 01 15 00 02 e3 00 15 00 02 25 10 15 00 02 28 6f 15 00 02 29 01 15 00 02 2a df 15 00 02 2c 22 15 00 02 c3 0f 15 00 02 37 9c 15 00 02 38 a7 15 00 02 39 41 15 00 02 80 20 15 00 02 91 67 15 00 02 92 67 15 00 02 a0 55 15 00 02 a1 50 15 00 02 a3 58 15 00 02 a4 9c 15 00 02 a7 02 15 00 02 a8 01 15 00 02 a9 21 15 00 02 aa fc 15 00 02 ab 28 15 00 02 ac 06 15 00 02 ad 06 15 00 02 ae 06 15 00 02 af 03 15 00 02 b0 08 15 00 02 b1 26 15 00 02 b2 28 15 00 02 b3 28 15 00 02 b4 03 15 00 02 b5 08 15 00 02 b6 26 15 00 02 b7 08 15 00 02 b8 26 15 00 02 c0 00 15 00 02 c1 00 15 00 02 c2 00 15 00 02 ff 30 15 00 02 ff 52 15 00 02 ff 02 15 00 02 b0 02 15 00 02 d0 02 15 00 02 b1 0f 15 00 02 d1 10 15 00 02 b2 11 15 00 02 d2 12 15 00 02 b3 32 15 00 02 d3 33 15 00 02 b4 36 15 00 02 d4 36 15 00 02 b5 3c 15 00 02 d5 3c 15 00 02 b6 20 15 00 02 d6 20 15 00 02 b7 3e 15 00 02 d7 3e 15 00 02 b8 0e 15 00 02 d8 0d 15 00 02 b9 05 15 00 02 d9 05 15 00 02 ba 11 15 00 02 da 12 15 00 02 bb 11 15 00 02 db 11 15 00 02 bc 13 15 00 02 dc 14 15 00 02 bd 14 15 00 02 dd 14 15 00 02 be 16 15 00 02 de 18 15 00 02 bf 0e 15 00 02 df 0f 15 00 02 c0 17 15 00 02 e0 17 15 00 02 c1 07 15 00 02 e1 08 15 00 02 ff 30 15 00 02 ff 52 15 00 02 ff 03 15 00 02 08 8a 15 00 02 09 8b 15 00 02 30 00 15 00 02 31 00 15 00 02 32 00 15 00 02 33 00 15 00 02 34 61 15 00 02 35 d4 15 00 02 36 24 15 00 02 37 03 15 00 02 40 86 15 00 02 41 87 15 00 02 42 84 15 00 02 43 85 15 00 02 44 11 15 00 02 45 de 15 00 02 46 dd 15 00 02 47 11 15 00 02 48 e0 15 00 02 49 df 15 00 02 50 82 15 00 02 51 83 15 00 02 52 80 15 00 02 53 81 15 00 02 54 11 15 00 02 55 e2 15 00 02 56 e1 15 00 02 57 11 15 00 02 58 e4 15 00 02 59 e3 15 00 02 82 0f 15 00 02 83 0f 15 00 02 84 00 15 00 02 85 0f 15 00 02 86 0f 15 00 02 87 0e 15 00 02 88 0e 15 00 02 89 06 15 00 02 8a 06 15 00 02 8b 07 15 00 02 8c 07 15 00 02 8d 04 15 00 02 8e 04 15 00 02 8f 05 15 00 02 90 05 15 00 02 98 0f 15 00 02 99 0f 15 00 02 9a 00 15 00 02 9b 0f 15 00 02 9c 0f 15 00 02 9d 0e 15 00 02 9e 0e 15 00 02 9f 06 15 00 02 a0 06 15 00 02 a1 07 15 00 02 a2 07 15 00 02 a3 04 15 00 02 a4 04 15 00 02 a5 05 15 00 02 a6 05 15 00 02 e0 02 15 00 02 e1 52 15 00 02 ff 30 15 00 02 ff 52 15 00 02 ff 00 15 00 02 36 02 05 c8 01 11 05 64 01 29];
-			panel-exit-sequence = <0x5000128 0x5000110>;
+			//panel-exit-sequence = <0x5000128 0x5000110>;
+			panel-exit-sequence = [
+				05 00 01 28
+				05 00 01 10
+			];
 
 			display-timings {
 				native-mode = <&timing0>;
@@ -2693,11 +2698,11 @@
 		reg = <0x00 0xff460f00 0x00 0x100>;
 		interrupts = <0x00 0x4d 0x04>;
 		interrupt-names = "vopb_mmu";
-		clocks = <&cru 0xb5>, <&cru 0xfb>;
-		clock-names = "aclk", "hclk";
+		clocks = <&cru 0xb5>, <&cru 0xfb>, <&cru 54>;
+		clock-names = "aclk", "hclk", "sclk";
 		power-domains = <&power 0x0c>;
 		#iommu-cells = <0>;
-		//rockchip,disable-device-link-resume;
+		rockchip,disable-device-link-resume;
 		status = "okay";
 	};
 
@@ -2800,7 +2805,7 @@
 		power-domains = <&power 0x0d>;
 		rk_iommu,disable_reset_quirk;
 		#iommu-cells = <0>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	qos_gmac: qos@ff518000 {
@@ -2910,7 +2915,7 @@
 		status = "okay";
 	};
 
-	dmc: dmc {
+	dmc: dmc { //Kernel is inhappy with dfi and dmc. does not want to exist with vop and gpu.
 		compatible = "rockchip,px30-dmc";
 		interrupts = <0x00 0x69 0x04>;
 		interrupt-names = "complete_irq";
@@ -2925,11 +2930,11 @@
 		auto-min-freq = <0x50140>;
 		auto-freq-en = <0x01>;
 		#cooling-cells = <2>;
-		status = "okay";
+		status = "disabled";
 		center-supply = <&vdd_logic>;
 
 		ddr_power_model: ddr_power_model {
-			compatible = "ddr_power_model";
+			compatible = "rockchip,ddr-power-model";
 			dynamic-power-coefficient = <0x78>;
 			static-power-coefficient = <0xc8>;
 			ts = <0x7d00 0x125c 0xffffffb0 0x02>;
@@ -2937,7 +2942,7 @@
 		};
 	};
 
-	dmc-fsp {
+	/*dmc-fsp {
 		compatible = "rockchip,px30s-dmc-fsp";
 		debug_print_level = <0x00>;
 		phy_de_skew_en = <0x01>;
@@ -2948,8 +2953,8 @@
 		lpddr4_params = <&lpddr4_params>;
 		ddr_timing = <&ddr_timing>;
 		status = "okay";
-	};
-
+	};*/
+	
 	dmc_opp_table: dmc-opp-table {
 		compatible = "operating-points-v2";
 		rockchip,max-volt = <1150000>;
@@ -4227,7 +4232,7 @@
 		/* If enable uart uses irq instead of fiq */
 		rockchip,irq-mode-enable = <1>;
 		rockchip,baudrate = <1500000>;/* Only 115200 and 1500000 */
-		interrupts = <0x00 127 0x08>;
+		interrupts = <0x00 127 0x04>;//was 0x08, but should be 0x04?
 		pinctrl-names = "default";
 		pinctrl-0 = <&uart5_xfer>;
 		status = "okay";
@@ -4558,10 +4563,11 @@
 		//pinctrl-names = "default";
 		enable-active-high;
 		regulator-boot-on;
-		vin-supply = <&vcc_3v0>;
+		regulator-always-on;
+		//vin-supply = <&vcc_3v0>;
 
 		regulator-state-mem {
-			regulator-off-in-suspend;
+			regulator-on-in-suspend;
 		};
 	};
 	
@@ -4576,7 +4582,7 @@
 		pinctrl-names = "default";
 		enable-active-high;
 		regulator-boot-on;
-		vin-supply = <&vcc_3v0>;
+		//vin-supply = <&vcc_3v0>; //rk817 not initialized at this point
 
 		regulator-state-mem {
 			regulator-off-in-suspend;
@@ -4592,6 +4598,9 @@
 		//gpio = <&gpio0 16 0x00>; //backlight pwm
 		regulator-boot-on;
 		vin-supply = <&vccsys>;
+		regulator-state-mem {
+			regulator-off-in-suspend;
+		};
 	};
 	
 	/* load switch or ldo that controls dcdc_boost -> usb-c otg port power path */
