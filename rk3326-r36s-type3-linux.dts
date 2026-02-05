@@ -21,13 +21,15 @@
 		sr_mc_gate_idle = <0x00>;
 		srpd_lite_idle = <0x00>;
 		standby_idle = <0x00>;
+		
 		auto_pd_dis_freq = <0x42a>;
-		auto_sr_dis_freq = <0x320>;
+		auto_sr_dis_freq = <800>;
 		ddr2_dll_dis_freq = <0x12c>;
 		ddr3_dll_dis_freq = <0x12c>;
 		ddr4_dll_dis_freq = <0x271>;
-		phy_dll_dis_freq = <0x190>;
+		phy_dll_dis_freq = <400>;
 		ddr2_odt_dis_freq = <0x64>;
+		
 		phy_ddr2_odt_dis_freq = <0x64>;
 		ddr2_drv = <0x01>;
 		ddr2_odt = <0x96>;
@@ -35,30 +37,34 @@
 		phy_ddr2_ck_drv = <0x12>;
 		phy_ddr2_dq_drv = <0x15>;
 		phy_ddr2_odt = <0x02>;
-		ddr3_odt_dis_freq = <0x190>;
-		phy_ddr3_odt_dis_freq = <0x190>;
+		ddr3_odt_dis_freq = <400>;
+		phy_ddr3_odt_dis_freq = <400>;
+		
 		ddr3_drv = <0x28>;
 		ddr3_odt = <0x78>;
 		phy_ddr3_ca_drv = <0x15>;
 		phy_ddr3_ck_drv = <0x12>;
 		phy_ddr3_dq_drv = <0x15>;
 		phy_ddr3_odt = <0x02>;
-		phy_lpddr2_odt_dis_freq = <0x29a>;
+		
+		phy_lpddr2_odt_dis_freq = <666>;
 		lpddr2_drv = <0x28>;
 		phy_lpddr2_ca_drv = <0x16>;
 		phy_lpddr2_ck_drv = <0x13>;
 		phy_lpddr2_dq_drv = <0x16>;
 		phy_lpddr2_odt = <0x00>;
-		lpddr3_odt_dis_freq = <0x190>;
-		phy_lpddr3_odt_dis_freq = <0x190>;
+		
+		lpddr3_odt_dis_freq = <400>;
+		phy_lpddr3_odt_dis_freq = <400>;
 		lpddr3_drv = <0x28>;
 		lpddr3_odt = <0xf0>;
 		phy_lpddr3_ca_drv = <0x16>;
 		phy_lpddr3_ck_drv = <0x13>;
 		phy_lpddr3_dq_drv = <0x16>;
 		phy_lpddr3_odt = <0x02>;
-		lpddr4_odt_dis_freq = <0x320>;
-		phy_lpddr4_odt_dis_freq = <0x320>;
+		
+		lpddr4_odt_dis_freq = <800>;
+		phy_lpddr4_odt_dis_freq = <800>;
 		lpddr4_drv = <0x3c>;
 		lpddr4_dq_odt = <0x28>;
 		lpddr4_ca_odt = <0x28>;
@@ -66,14 +72,16 @@
 		phy_lpddr4_ck_cs_drv = <0x06>;
 		phy_lpddr4_dq_drv = <0x06>;
 		phy_lpddr4_odt = <0x10>;
-		ddr4_odt_dis_freq = <0x29a>;
-		phy_ddr4_odt_dis_freq = <0x29a>;
+		
+		ddr4_odt_dis_freq = <666>;
+		phy_ddr4_odt_dis_freq = <666>;
 		ddr4_drv = <0x22>;
 		ddr4_odt = <0xf0>;
 		phy_ddr4_ca_drv = <0x16>;
 		phy_ddr4_ck_drv = <0x13>;
 		phy_ddr4_dq_drv = <0x16>;
 		phy_ddr4_odt = <0x02>;
+		
 		ddr3a1_ddr4a9_de-skew = <0x06>;
 		ddr3a0_ddr4a10_de-skew = <0x07>;
 		ddr3a3_ddr4a6_de-skew = <0x07>;
@@ -291,7 +299,7 @@
 		srpd_lite_idle = <0x00>;
 		standby_idle = <0x00>;
 		pd_dis_freq = <0x42a>;
-		sr_dis_freq = <0x320>;
+		sr_dis_freq = <800>;
 		dram_dll_dis_freq = <0x12c>;
 		phy_dll_dis_freq = <0x00>;
 		phy_dq_drv_odten = <0x21>;
@@ -334,7 +342,7 @@
 		reserved = <0x00>;
 		freq_0 = <0x312>;
 		freq_1 = <0x148>;
-		freq_2 = <0x29a>;
+		freq_2 = <666>;
 		freq_3 = <0x312>;
 		freq_4 = <0x00>;
 		freq_5 = <0x00>;
@@ -344,7 +352,7 @@
 		srpd_lite_idle = <0x00>;
 		standby_idle = <0x00>;
 		pd_dis_freq = <0x42a>;
-		sr_dis_freq = <0x320>;
+		sr_dis_freq = <800>;
 		dram_dll_dis_freq = <0x1f4>;
 		phy_dll_dis_freq = <0x00>;
 		phy_dq_drv_odten = <0x21>;
@@ -397,7 +405,7 @@
 		srpd_lite_idle = <0x00>;
 		standby_idle = <0x00>;
 		pd_dis_freq = <0x42a>;
-		sr_dis_freq = <0x320>;
+		sr_dis_freq = <800>;
 		dram_dll_dis_freq = <0x00>;
 		phy_dll_dis_freq = <0x00>;
 		phy_dq_drv_odten = <0x21>;
@@ -450,7 +458,7 @@
 		srpd_lite_idle = <0x00>;
 		standby_idle = <0x00>;
 		pd_dis_freq = <0x42a>;
-		sr_dis_freq = <0x320>;
+		sr_dis_freq = <800>;
 		dram_dll_dis_freq = <0x00>;
 		phy_dll_dis_freq = <0x00>;
 		phy_dq_drv_odten = <0x21>;
@@ -493,7 +501,7 @@
 		reserved = <0x00>;
 		freq_0 = <0x312>;
 		freq_1 = <0x148>;
-		freq_2 = <0x29a>;
+		freq_2 = <666>;
 		freq_3 = <0x312>;
 		freq_4 = <0x00>;
 		freq_5 = <0x00>;
@@ -503,7 +511,7 @@
 		srpd_lite_idle = <0x00>;
 		standby_idle = <0x00>;
 		pd_dis_freq = <0x42a>;
-		sr_dis_freq = <0x320>;
+		sr_dis_freq = <800>;
 		dram_dll_dis_freq = <0x00>;
 		phy_dll_dis_freq = <0x00>;
 		phy_dq_drv_odten = <0x23>;
@@ -518,8 +526,8 @@
 		phy_odt = <0x50>;
 		phy_odt_puup_en = <0x00>;
 		phy_odt_pudn_en = <0x00>;
-		dram_dq_odt_en_freq = <0x320>;
-		phy_odt_en_freq = <0x320>;
+		dram_dq_odt_en_freq = <800>;
+		phy_odt_en_freq = <800>;
 		phy_dq_sr_odten = <0x0f>;
 		phy_ca_sr_odten = <0x01>;
 		phy_clk_sr_odten = <0x01>;
@@ -542,7 +550,7 @@
 		lp4_drv_pu_cal_odtoff = <0x00>;
 		phy_lp4_drv_pulldown_en_odten = <0x00>;
 		phy_lp4_drv_pulldown_en_odtoff = <0x00>;
-		lp4_ca_odt_en_freq = <0x320>;
+		lp4_ca_odt_en_freq = <800>;
 		phy_lp4_cs_drv_odten = <0x00>;
 		phy_lp4_cs_drv_odtoff = <0x00>;
 		lp4_odte_ck_en = <0x01>;
@@ -705,7 +713,7 @@
 				compatible = "arm,idle-state";
 				local-timer-stop;
 				arm,psci-suspend-param = <0x1010000>;
-				entry-latency-us = <0x190>;
+				entry-latency-us = <400>;
 				exit-latency-us = <0x1f4>;
 				min-residency-us = <0x7d0>;
 				//phandle = <0x05>;
@@ -720,7 +728,7 @@
 		rockchip,low-temp = <0x00>;
 		rockchip,low-temp-min-volt = <1000000>;
 		rockchip,low-temp-adjust-volt = <0x00 0x5e8 0xc350>;
-		clocks = <&cru 0x01>;
+		clocks = <&cru 0x01>; //PLL_APLL(Arm PLL)
 		rockchip,avs-scale = <0x04>;
 		rockchip,max-volt = <1350000>;
 		rockchip,evb-irdrop = <25000>;
@@ -728,7 +736,12 @@
 		nvmem-cell-names = "cpu_leakage", "performance";
 		/* bin scaling clock 1.296GHz */
 		rockchip,bin-scaling-sel = <0 13 1 13>;// 0x02 0x12>;
-		rockchip,pvtm-voltage-sel = <0x00 0xc350 0x00 0xc351 0xd2f0 0x01 0xd2f1 0xea60 0x02 0xea61 0x1869f 0x03>;
+		rockchip,pvtm-voltage-sel = <
+			0        50000   0
+			50001    54000   1
+			54001    60000   2
+			60001    99999   3
+		>;
 		rockchip,pvtm-freq = <408000>;
 		rockchip,pvtm-volt = <1000000>;
 		rockchip,pvtm-ch = <0x00 0x00>;
@@ -760,6 +773,7 @@
 			opp-microvolt-L2 = <950000 950000 1350000>;
 			opp-microvolt-L3 = <950000 950000 1350000>;
 			clock-latency-ns = <40000>;
+			//opp-suspend
 		};
 
 		/*opp-816000000 { //disabled for many boards
@@ -965,6 +979,12 @@
 		};
 	};
 
+	scmi-shmem@10f000 {
+		compatible = "arm,scmi-shmem";
+		reg = <0x00 0x10f000 0x00 0x100>;
+		//phandle = <0x15>;
+	};
+
 	gmac_clkin: external-gmac-clock {
 		compatible = "fixed-clock";
 		clock-frequency = <0x2faf080>;
@@ -982,7 +1002,7 @@
 		compatible = "rockchip,pm-px30";
 		status = "okay";
 		rockchip,sleep-debug-en = <1>;
-		rockchip,sleep-mode-config = <0x20702>;
+		rockchip,sleep-mode-config = <0x20702>;//00100000011100000010 SLP_ARMOFF SLP_HW_PLLS_PD SLP_PMU_PMUALIVE_32K SLP_PMU_DIS_OSC SLP_PMIC_LP
 		rockchip,wakeup-config = <0x85>;
 		//phandle = <0xd1>;
 	};
@@ -1078,12 +1098,6 @@
 		};
 	};
 
-	scmi-shmem@10f000 {
-		compatible = "arm,scmi-shmem";
-		reg = <0x00 0x10f000 0x00 0x100>;
-		//phandle = <0x15>;
-	};
-
 	pmugrf: syscon@ff010000 {
 		compatible = "rockchip,px30-pmugrf", "syscon", "simple-mfd";
 		reg = <0x00 0xff010000 0x00 0x1000>;
@@ -1115,6 +1129,8 @@
 			compatible = "rockchip,px30-pmu-pvtm";
 			clocks = <&pmucru 0x07>;
 			clock-names = "pmu";//pmu -> pvtm
+			resets = <&pmucru 104>;//SRST_P_PMU_PVTM
+			reset-names = "pmu";
 			status = "okay";
 			//phandle = <0xd6>;
 		};
@@ -1209,7 +1225,7 @@
 		clock-names = "aclk", "hclk", "sclk", "apb_pclk";
 		resets = <&cru 0x74>;
 		reset-names = "crypto-rst";
-		status = "disabled";
+		status = "okay";
 		phandle = <0xdb>;
 	};
 
@@ -1321,6 +1337,8 @@
 			compatible = "rockchip,px30-pvtm";
 			clocks = <&cru 0x4a>;
 			clock-names = "core";
+			resets = <&cru 17>;//SRST_P_PVTM
+			reset-names = "core";
 			status = "okay";
 			phandle = <0xe1>;
 		};
@@ -1408,20 +1426,23 @@
 	};
 
 	i2c0: i2c@ff180000 {
-		compatible = "rockchip,rk3399-i2c";
+		compatible = "rockchip,px30-i2c", "rockchip,rk3399-i2c";
 		reg = <0x00 0xff180000 0x00 0x1000>;
+		rockchip,grf = <&grf>;
 		clocks = <&cru 0x1d>, <&cru 0x14e>;
 		clock-names = "i2c", "pclk";
 		interrupts = <0x00 0x07 0x04>;
-		pinctrl-names = "default";
+		pinctrl-names = "default"; //"sleep";
 		pinctrl-0 = <&i2c0_xfer>;
+		//pinctrl-1 = <&i2c0_sleep>;
 		#address-cells = <1>;
 		#size-cells = <0>;
 		status = "okay";
 		clock-frequency = <400000>;
-		i2c-scl-rising-time-ns = <0x118>;
-		i2c-scl-falling-time-ns = <0x10>;
-		pm-disable;
+		i2c-scl-rising-time-ns = <280>;
+		i2c-scl-falling-time-ns = <16>;
+		//pm-disable;
+		//rockchip,pm-runtime-disabled;
 
 		rk817: pmic@20 {
 			compatible = "rockchip,rk817";
@@ -1430,9 +1451,11 @@
 			interrupts = <10 0x08>; //pmic_int gpio0, IRQ_TYPE_LEVEL_LOW
 			pinctrl-names = "default", "pmic-sleep", "pmic-power-off", "pmic-reset";
 			pinctrl-0 = <&pmic_int>;
-			pinctrl-1 = <&soc_slppin_slp>, <&rk817_slppin_slp>;
+			pinctrl-1 = <&soc_slppin_slp>, <&rk817_slppin_slp>;//Normal: low, SleepEnter: High
 			pinctrl-2 = <&soc_slppin_gpio>, <&rk817_slppin_pwrdn>;
 			pinctrl-3 = <&soc_slppin_rst>, <&rk817_slppin_rst>;
+			//pinctrl-names = "default";
+			//pinctrl-0 = <&pmic_int>, <&soc_slppin_slp>, <&rk817_slppin_slp>;
 			rockchip,system-power-controller;
 			wakeup-source;
 			#clock-cells = <1>;
@@ -1476,23 +1499,23 @@
 					function = "pin_fun0";
 				};
 
-				rk817_slppin_null: rk817_slppin_null {
+				rk817_slppin_null: rk817_slppin_null {//No effect on PMIC with pin
 					pins = "gpio_slp";
 					function = "pin_fun0";
 				};
 
-				rk817_slppin_slp: rk817_slppin_slp {
+				rk817_slppin_slp: rk817_slppin_slp {//Set PMIC to sleep function with pin
 					pins = "gpio_slp";
 					function = "pin_fun1";
 				};
 
-				rk817_slppin_pwrdn: rk817_slppin_pwrdn {
+				rk817_slppin_pwrdn: rk817_slppin_pwrdn {//Set PMIC to shutdown function
 					pins = "gpio_slp";
 					function = "pin_fun2";
 
 				};
 
-				rk817_slppin_rst: rk817_slppin_rst {
+				rk817_slppin_rst: rk817_slppin_rst {//Set pmic to restart pmu function
 					pins = "gpio_slp";
 					function = "pin_fun3";
 				};
@@ -1511,8 +1534,8 @@
 					regulator-name = "vdd_logic";//GPU and core logic 0.9-1.10
 
 					regulator-state-mem {
-						regulator-on-in-suspend;//on-in-suspend
-						regulator-suspend-microvolt = <950000>;
+						regulator-on-in-suspend;//on-in-suspend.
+						regulator-suspend-microvolt = <95000>;//Was 95000 but too low for GPU and memory at available freqs
 					};
 				};
 
@@ -1527,8 +1550,8 @@
 					regulator-name = "vdd_arm";//CPU 0.95-1.35
 
 					regulator-state-mem {
-						regulator-off-in-suspend;//off-in-suspend
-						regulator-suspend-microvolt = <950000>;
+						regulator-on-in-suspend;//off-in-suspend ARM suspend currently borked, keeping CPU on fixes it
+						regulator-suspend-microvolt = <95000>;//Was 950000, but too low for higher opp freq suspends.
 					};
 				};
 
@@ -1668,9 +1691,9 @@
 					};
 				};
 
-				vdd1v5_dvp: LDO_REG9 {
-					regulator-always-on;
-					regulator-boot-on;
+				vdd1v5_dvp: LDO_REG9 { //Not sure if actually used
+					//regulator-always-on;
+					//regulator-boot-on;
 					regulator-min-microvolt = <1500000>;
 					regulator-max-microvolt = <1500000>;
 					regulator-name = "vdd1v5_dvp";
@@ -1750,6 +1773,8 @@
 				//extcon = <>;     //rk817_charge_dc_det_worker likes to switch boost off and glitch usb
 				power_dc2otg = <0>; //DC is connected to OTG/USBIN of RK817, so keep the OTG_SWITCH OFF!
 				otg5v_suspend_enable = <0>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&dc_det>;
 			};
 
 			rk817_codec: codec {
@@ -2134,10 +2159,10 @@
 		#clock-cells = <1>;
 		#reset-cells = <1>;
 		//assigned-clocks = <&cru 0x04>; //PLL_NPLL
-		//assigned-clock-rates = <1040000000>;
+		//assigned-clock-rates = <1040000000>; //in rockchip linux
 		//assigned-clocks = <&cru 4>;
 
-		//assigned-clock-rates = <1188000000>; //also patched off in aosp kernel? Uboot sets this?
+		//assigned-clock-rates = <1188000000>; //in mainline, also patched off in aosp kernel? Uboot sets this?
 		//phandle = <0x02>;
 	};
 
@@ -2321,7 +2346,7 @@
 		cap-mmc-highspeed;
 		cap-sd-highspeed;
 		supports-sd;
-		card-detect-delay = <0x320>;
+		card-detect-delay = <800>;
 		//ignore-pm-notify;
 		cd-gpios = <&gpio0 3 0x01>;
 		disable-wp;
@@ -2352,7 +2377,7 @@
 		cap-mmc-highspeed;
 		cap-sd-highspeed;
 		supports-sd;
-		card-detect-delay = <0x320>;
+		card-detect-delay = <800>;
 		//ignore-pm-notify;
 		cd-gpios = <&gpio0 2 0x01>;
 		disable-wp;
@@ -2422,10 +2447,13 @@
 		clocks = <&cru 0x49>, <&cru 170>;
 		clock-names = "clk_mali", "aclk_mali";
 		power-domains = <&power 0x0e>;
+		power-off-delay-ms = <200>;
 		#cooling-cells = <2>;
 		operating-points-v2 = <&gpu_opp_table>;
 		status = "okay";
 		mali-supply = <&vdd_logic>; //driver is not happy about vdd_logic for some reason
+		upthreshold = <40>;
+ 		downdifferential = <10>;
 
 		power_model {
 			compatible = "arm,mali-simple-power-model";
@@ -2438,6 +2466,7 @@
 
 	gpu_opp_table: gpu-opp-table {
 		compatible = "operating-points-v2";
+		clocks = <&cru 0x03>; //PLL_CPLL(Codec PLL)
 		rockchip,thermal-zone = <&soc_thermal>;
 		rockchip,temp-hysteresis = <5000>;
 		rockchip,low-temp = <0x00>;
@@ -2447,50 +2476,72 @@
 		rockchip,evb-irdrop = <25000>;
 		rockchip,pvtm-voltage-sel = <0x00 0xc350 0x00 0xc351 0xd2f0 0x01 0xd2f1 0xea60 0x02 0xea61 0x1869f 0x03>;
 		rockchip,pvtm-ch = <0x00 0x00>;
+		rockchip,avs = <1>;
 		
-		/*opp-200000000 {//disabled?
-			opp-hz = <0x00 0xbebc200>;
-			opp-microvolt = <950000>;
-			opp-microvolt-L0 = <950000>;
-			opp-microvolt-L1 = <950000>;
-			opp-microvolt-L2 = <950000>;
-			opp-microvolt-L3 = <950000>;
+		opp-200000000 {//disabled?
+			opp-hz = /bits/ 64 <200000000>;
+			opp-microvolt = <950000 950000 1175000>;
+			opp-microvolt-L0 = <950000 950000 1175000>;
+			opp-microvolt-L1 = <950000 950000 1175000>;
+			opp-microvolt-L2 = <950000 950000 1175000>;
+			opp-microvolt-L3 = <950000 950000 1175000>;
 		};
 
 		opp-300000000 {//disabled?
-			opp-hz = <0x00 0x11e1a300>;
-			opp-microvolt = <975000>;
-			opp-microvolt-L0 = <975000>;
-			opp-microvolt-L1 = <950000>;
-			opp-microvolt-L2 = <950000>;
-			opp-microvolt-L3 = <950000>;
-		};*/
+			opp-hz = /bits/ 64 <300000000>;
+			opp-microvolt = <975000 975000 1175000>;
+			opp-microvolt-L0 = <975000 975000 1175000>;
+			opp-microvolt-L1 = <950000 950000 1175000>;
+			opp-microvolt-L2 = <950000 950000 1175000>;
+			opp-microvolt-L3 = <950000 950000 1175000>;
+		};
 
 		opp-400000000 {
 			opp-hz = <0x00 400000000>;
-			opp-microvolt = <1050000>;
+			/*opp-microvolt = <1050000>;
 			opp-microvolt-L0 = <1050000>;
 			opp-microvolt-L1 = <1025000>;
 			opp-microvolt-L2 = <975000>;
 			opp-microvolt-L3 = <950000>;
+			*/
+			opp-microvolt = <1050000 1050000 1175000>;
+			opp-microvolt-L0 = <1050000 1050000 1175000>;
+			opp-microvolt-L1 = <1025000 1025000 1175000>;
+			opp-microvolt-L2 = <975000 975000 1175000>;
+			opp-microvolt-L3 = <950000 950000 1175000>;
+			
 		};
 
 		opp-480000000 {
 			opp-hz = <0x00 480000000>;
-			opp-microvolt = <1125000>;
+			/*opp-microvolt = <1125000>;
 			opp-microvolt-L0 = <1125000>;
 			opp-microvolt-L1 = <1100000>;
 			opp-microvolt-L2 = <1050000>;
 			opp-microvolt-L3 = <1000000>;
+			*/
+			opp-microvolt = <1125000 1125000 1175000>;
+			opp-microvolt-L0 = <1125000 1125000 1175000>;
+			opp-microvolt-L1 = <1100000 1100000 1175000>;
+			opp-microvolt-L2 = <1050000 1050000 1175000>;
+			opp-microvolt-L3 = <1000000 1000000 1175000>;
+			
 		};
 
 		opp-520000000 {
 			opp-hz = <0x00 	520000000>;
-			opp-microvolt = <1150000>;//1175000
-			opp-microvolt-L0 = <1150000>;//1175000
+			/*opp-microvolt = <1175000>;//was 1150000, 1175000 in rockchiplinux
+			opp-microvolt-L0 = <1175000>;//was 1150000, 1175000 in rockchiplinux
 			opp-microvolt-L1 = <1150000>;
 			opp-microvolt-L2 = <1100000>;
 			opp-microvolt-L3 = <1050000>;
+			*/
+			opp-microvolt = <1175000 1175000 1175000>;
+			opp-microvolt-L0 = <1175000 1175000 1175000>;
+			opp-microvolt-L1 = <1150000 1150000 1175000>;
+			opp-microvolt-L2 = <1100000 1100000 1175000>;
+			opp-microvolt-L3 = <1050000 1050000 1175000>;
+			
 		};
 	};
 
@@ -2511,6 +2562,8 @@
 		reg = <0x00 0xff442000 0x00 0x800>;
 		interrupts = <0x00 0x50 0x04 0x00 0x4f 0x04>;
 		interrupt-names = "irq_enc", "irq_dec";
+		//clocks = <&cru ACLK_VPU>, <&cru HCLK_VPU>;
+		//clock-names = "aclk", "hclk";
 		dev_mode = <0x00>;
 		iommus = <&vpu_mmu>;
 		allocator = <0x01>;
@@ -2596,6 +2649,7 @@
 			backlight-supply = <&vcc_bl_boost>;
 			power-supply = <&vcc28_lcd0>;
 			iovcc-supply = <&vcc18_lcd0>;
+			vdd-supply = <&vcc18_lcd0>;
 			//vcc-supply = <&vcc28_lcd0>;
 			reset-gpios = <&gpio3 15 0x01>;
 			//enable-gpios = <&gpio0 13 0x00>; //handled by vcc18-lcd regulator
@@ -2663,6 +2717,8 @@
 		interrupts = <0x00 0x4d 0x04>;
 		clocks = <&cru 0xb5>, <&cru 0x96>, <&cru 0xfb>;
 		clock-names = "aclk_vop", "dclk_vop", "hclk_vop";
+		//resets = <&cru SRST_VOPB_A>, <&cru SRST_VOPB_H>, <&cru SRST_VOPB>;
+		//reset-names = "axi", "ahb", "dclk";
 		power-domains = <&power 0x0c>;
 		iommus = <&vopb_mmu>;
 		status = "okay";
@@ -2915,7 +2971,7 @@
 		status = "okay";
 	};
 
-	dmc: dmc { //Kernel is inhappy with dfi and dmc. does not want to exist with vop and gpu.
+	dmc: dmc { //Kernel is not happy with dfi and dmc. does not want to exist with vop and gpu.
 		compatible = "rockchip,px30-dmc";
 		interrupts = <0x00 0x69 0x04>;
 		interrupt-names = "complete_irq";
@@ -2930,7 +2986,7 @@
 		auto-min-freq = <0x50140>;
 		auto-freq-en = <0x01>;
 		#cooling-cells = <2>;
-		status = "disabled";
+		status = "okay";
 		center-supply = <&vdd_logic>;
 
 		ddr_power_model: ddr_power_model {
@@ -2942,9 +2998,9 @@
 		};
 	};
 
-	/*dmc-fsp {
+	dmc-fsp {
 		compatible = "rockchip,px30s-dmc-fsp";
-		debug_print_level = <0x00>;
+		debug_print_level = <0x01>;
 		phy_de_skew_en = <0x01>;
 		ddr3_params = <&ddr3_params>;
 		ddr4_params = <&ddr4_params>;
@@ -2953,43 +3009,50 @@
 		lpddr4_params = <&lpddr4_params>;
 		ddr_timing = <&ddr_timing>;
 		status = "okay";
-	};*/
+	};
 	
 	dmc_opp_table: dmc-opp-table {
 		compatible = "operating-points-v2";
+		clocks = <&cru 0x02>; //PLL_DPLL(DDR PLL)
 		rockchip,max-volt = <1150000>;
 		rockchip,evb-irdrop = <25000>;
 		rockchip,pvtm-voltage-sel = <0x00 0xc350 0x00 0xc351 0xd2f0 0x01 0xd2f1 0xea60 0x02 0xea61 0x1869f 0x03>;
 		rockchip,pvtm-ch = <0x00 0x00>;
+		rockchip,avs = <1>;
 
 
 		opp-528000000 {
-			opp-hz = <0x00 0x1f78a400>;
-			opp-microvolt = <975000>;
-			opp-microvolt-L0 = <975000>;
-			opp-microvolt-L1 = <975000>;
-			opp-microvolt-L2 = <950000>;
-			opp-microvolt-L3 = <950000>;
+			opp-hz = <0x00 528000000>;
+			opp-microvolt = <975000 975000 1175000>;
+			opp-microvolt-L0 = <975000 975000 1175000>;
+			opp-microvolt-L1 = <975000 975000 1175000>;
+			opp-microvolt-L2 = <950000 950000 1175000>;
+			opp-microvolt-L3 = <950000 950000 1175000>;
 		};
 
 		opp-666000000 {
-			opp-hz = <0x00 0x27b25a80>;
-			opp-microvolt = <1050000>;
-			opp-microvolt-L0 = <1050000>;
-			opp-microvolt-L1 = <1000000>;
-			opp-microvolt-L2 = <975000>;
-			opp-microvolt-L3 = <950000>;
+			opp-hz = <0x00 666000000>;
+			opp-microvolt = <1050000 1050000 1175000>;
+			opp-microvolt-L0 = <1050000 1050000 1175000>;
+			opp-microvolt-L1 = <1000000 1000000 1175000>;
+			opp-microvolt-L2 = <975000 975000 1175000>;
+			opp-microvolt-L3 = <950000 950000 1175000>;
 		};
 
 		opp-786000000 {
-			opp-hz = <0x00 0x2ed96880>;
-			opp-microvolt = <1100000>;
-			opp-microvolt-L0 = <1100000>;
-			opp-microvolt-L1 = <1050000>;
-			opp-microvolt-L2 = <1025000>;
-			opp-microvolt-L3 = <1000000>;
+			opp-hz = <0x00 786000000>;
+			opp-microvolt = <1100000 1100000 1175000>;
+			opp-microvolt-L0 = <1100000 1100000 1175000>;
+			opp-microvolt-L1 = <1050000 1050000 1175000>;
+			opp-microvolt-L2 = <1025000 1025000 1175000>;
+			opp-microvolt-L3 = <1000000 1000000 1175000>;
 			status = "disabled"; //maybe okay? needs testing?
 		};
+	};
+
+	dmcdbg: dmcdbg {
+		compatible = "rockchip,px30-dmcdbg";
+		status = "okay";
 	};
 
 	rockchip_system_monitor: rockchip-system-monitor {
@@ -3163,6 +3226,10 @@
 								<0x00 0x09 0x01 &pcfg_pull_none_smt>;
 				phandle = <0x5d>;
 			};
+			i2c0_sleep: i2c0-sleep {
+				rockchip,pins = <0x00 0x08 0x00 &pcfg_pull_up>, 
+								<0x00 0x09 0x00 &pcfg_pull_up>;
+			};
 		};
 
 		i2c1 {
@@ -3195,12 +3262,12 @@
 		tsadc {
 
 			tsadc_otp_gpio: tsadc-otp-gpio {
-				rockchip,pins = <0x00 0x06 0x00 &pcfg_pull_none>;
+				rockchip,pins = <0x00 0x06 0x00 &pcfg_pull_none>;//pulling low will reset pmic
 				phandle = <0x88>;
 			};
 
 			tsadc_otp_out: tsadc-otp-out {
-				rockchip,pins = <0x00 0x06 0x01 &pcfg_pull_none>;
+				rockchip,pins = <0x00 0x06 0x01 &pcfg_pull_none>;//will go low if over temperature, connected to reset
 				phandle = <0x89>;
 			};
 		};
@@ -4109,24 +4176,28 @@
 
 		pmic {
 
+			dc_det: dc-det {
+				rockchip,pins = <0x03 5 0x00 &pcfg_pull_none>;
+			};
+		
 			pmic_int: pmic_int {
 				rockchip,pins = <0x00 0x0a 0x00 &pcfg_pull_up>;
-				phandle = <0x5f>;
+				//phandle = <0x5f>;
 			};
 
 			soc_slppin_gpio: soc_slppin_gpio {
-				rockchip,pins = <0x00 0x04 0x00 &pcfg_output_low>;
-				phandle = <0x62>;
+				rockchip,pins = <0x00 0x04 0x00 &pcfg_output_low>; //PMIC GPIO low
+				//phandle = <0x62>;
 			};
 
 			soc_slppin_slp: soc_slppin_slp {
-				rockchip,pins = <0x00 0x04 0x01 &pcfg_pull_none>;
-				phandle = <0x60>;
+				rockchip,pins = <0x00 0x04 0x01 &pcfg_pull_up>;//PMIC_SLEEP function, was pullup
+				//phandle = <0x60>;
 			};
 
 			soc_slppin_rst: soc_slppin_rst {
-				rockchip,pins = <0x00 0x04 0x02 &pcfg_pull_none>;
-				phandle = <0x64>;
+				rockchip,pins = <0x00 0x04 0x02 &pcfg_pull_up>;//TSADC_SHUT_M1, low if over temperature, was pullup
+				//phandle = <0x64>;
 			};
 		};
 
@@ -4161,10 +4232,10 @@
 
 			led_pins: led-pins {
 				rockchip,pins = <0x00 0x00 0x00 &pcfg_pull_none>, //Blue/Green led GPIO0 RK_PA0
-								<0x00 0x11 0x00 &pcfg_pull_none>,//Red led GPIO0 RK_PB3
-								<0x00 0x01 0x00 &pcfg_pull_none>,//Charge led (with missing resistors)
-								<0x00 0x0b 0x00 &pcfg_pull_none>,//work_blue_gpio
-								<0x00 0x0c 0x00 &pcfg_pull_none>;//work_red_gpio
+								<0x00 0x11 0x00 &pcfg_pull_none>,//Red led GPIO0 RK_C1, Also PWM3!
+								<0x00 0x01 0x00 &pcfg_pull_none>,//Charge led (with missing resistors) RK_PA1
+								<0x00 0x0b 0x00 &pcfg_pull_none>,//work_blue_gpio RK_PB3
+								<0x00 0x0c 0x00 &pcfg_pull_none>;//work_red_gpio RK_PB4
 			};
 		};
 
@@ -4252,7 +4323,7 @@
 		#size-cells = <2>;
 		ranges;
 
-		drm_logo: drm-logo@00000000 {
+		drm_logo: drm-logo@0 {
 			compatible = "rockchip,drm-logo";
 			reg = <0x00 0x00 0x00 0x00>;
 			phandle = <0x11>;
@@ -4260,7 +4331,12 @@
 
 		ramoops_mem: region@110000 {
 			reg = <0x00 0x110000 0x00 0xf0000>;
-			reg-names = "ramoops_mem";
+			reg-names = "ramoops_mem";	
+			record-size = <0x20000>;
+			console-size = <0x80000>;
+			ftrace-size = <0x00000>;
+			pmsg-size = <0x50000>;
+			
 			phandle = <0xbf>;
 		};
 	};
@@ -4464,8 +4540,22 @@
 			label = "orange:charger";
 			gpios = <&gpio0 0x01 0>;
 		};
-	};
 
+	};
+		/* Needs to be tested if PWM3 actually exist in the RK3326
+	pwm_led: led-controller {
+		compatible = "pwm-leds";
+
+		red_led: led-charge {
+			color = <LED_COLOR_ID_BLUE>;
+			function = LED_FUNCTION_STATUS;
+			linux,default-trigger = "heartbeat";
+			max-brightness = <255>;
+			pwms = <&pwm3 0 25000 0>; //RK_C1, gpio0 0x11(17)
+		};
+	};
+		*/
+		
     //Motor gpio102 : GPIO3_A6
 	/*vibrator {
 		compatible = "gpio-vibrator";
@@ -4484,16 +4574,16 @@
 		phandle = <0xa3>;
 	};
 
-	/*charge-animation {
+	charge-animation {
 		compatible = "rockchip,uboot-charge";
-		rockchip,uboot-charge-on = <0x01>;
-		rockchip,android-charge-on = <0x00>;
-		rockchip,uboot-exit-charge-auto = <0x01>;
-		rockchip,uboot-exit-charge-voltage = <0xd7a>;
-		rockchip,uboot-low-power-voltage = <0x00>;
-		rockchip,screen-on-voltage = <0xdac>;
+		rockchip,uboot-charge-on = <1>;
+		rockchip,android-charge-on = <0>;
+		rockchip,uboot-exit-charge-auto = <1>;
+		rockchip,uboot-exit-charge-voltage = <3090>;
+		rockchip,uboot-low-power-voltage = <3055>;
+		rockchip,screen-on-voltage = <3045>;
 		status = "okay";
-	};*/
+	};
 
 	rk817-sound {
 		compatible = "simple-audio-card";
@@ -4564,6 +4654,7 @@
 		enable-active-high;
 		regulator-boot-on;
 		regulator-always-on;
+		startup-delay-us = <5000>;
 		//vin-supply = <&vcc_3v0>;
 
 		regulator-state-mem {
@@ -4582,6 +4673,8 @@
 		pinctrl-names = "default";
 		enable-active-high;
 		regulator-boot-on;
+		regulator-always-on;
+		startup-delay-us = <5000>;
 		//vin-supply = <&vcc_3v0>; //rk817 not initialized at this point
 
 		regulator-state-mem {
@@ -4597,6 +4690,8 @@
 		regulator-max-microvolt = <17000000>;
 		//gpio = <&gpio0 16 0x00>; //backlight pwm
 		regulator-boot-on;
+		regulator-always-on;
+		startup-delay-us = <50000>;
 		vin-supply = <&vccsys>;
 		regulator-state-mem {
 			regulator-off-in-suspend;
@@ -4615,6 +4710,7 @@
 		enable-active-high;
 		regulator-always-on; //if otg starts to work, disable this to save power
 		regulator-boot-on;
+		startup-delay-us = <50000>;
 		//vin-supply = <&dcdc_boost>; //Disable, rk817 initialized much later on boot
 		
 		regulator-state-mem {

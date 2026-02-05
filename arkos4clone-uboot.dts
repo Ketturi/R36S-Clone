@@ -23,6 +23,18 @@
 		spi1 = "/spi@ff1d8000";
 	};
 
+	chosen {
+		bootargs = [00];
+		stdout-path = &uart5;
+	};
+	
+	secure-otp@ff110000 {
+		compatible = "rockchip,px30-secure-otp";
+		reg = <0x0 0xff110000 0x0 0x4000>;
+		secure_conf = <0xff11C008>;
+		mask_addr = <0xff2d0000>;
+	};
+	
 	cpus {
 		#address-cells = <0x02>;
 		#size-cells = <0x00>;
@@ -378,6 +390,7 @@
 	psci {
 		compatible = "arm,psci-1.0";
 		method = "smc";
+		u-boot,dm-pre-reloc;
 	};
 
 	timer {
@@ -579,7 +592,7 @@
 		clock-names = "aclk\0hclk\0sclk\0apb_pclk";
 		resets = <0x02 0x74>;
 		reset-names = "crypto-rst";
-		status = "disabled";
+		status = "okay";
 	};
 
 	rng@ff0b0000 {
@@ -688,7 +701,7 @@
 		};
 	};
 
-	serial@ff158000 {
+	uart1: serial@ff158000 {
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff158000 0x00 0x100>;
 		interrupts = <0x00 0x10 0x04>;
@@ -702,7 +715,7 @@
 		status = "disabled";
 	};
 
-	serial@ff160000 {
+	uart2: serial@ff160000 {
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff160000 0x00 0x100>;
 		interrupts = <0x00 0x11 0x04>;
@@ -716,7 +729,7 @@
 		status = "disabled";
 	};
 
-	serial@ff168000 {
+	uart3: serial@ff168000 {
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff168000 0x00 0x100>;
 		interrupts = <0x00 0x12 0x04>;
@@ -730,7 +743,7 @@
 		status = "disabled";
 	};
 
-	serial@ff170000 {
+	uart4: serial@ff170000 {
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff170000 0x00 0x100>;
 		interrupts = <0x00 0x13 0x04>;
@@ -744,11 +757,11 @@
 		status = "disabled";
 	};
 
-	serial@ff178000 {
+	uart5: serial@ff178000 {
 		compatible = "rockchip,px30-uart\0snps,dw-apb-uart";
 		reg = <0x00 0xff178000 0x00 0x100>;
 		interrupts = <0x00 0x14 0x04>;
-		//clock-frequency = <24000000>;
+		clock-frequency = <24000000>;
 		clocks = <0x02 0x1c 0x02 0x14d>;
 		clock-names = "baudclk\0apb_pclk";
 		//assigned-clocks = <0x02 28>;//SCLK_UART5
@@ -761,6 +774,7 @@
 		pinctrl-0 = <0x5a 0x5b 0x5c>;
 		status = "disabled";
 		//clock-frequency = <0x1c200>;
+		u-boot,dm-pre-reloc;
 	};
 
 	i2c@ff180000 {
@@ -952,7 +966,7 @@
 					regulator-name = "vcc1v0_soc";
 
 					regulator-state-mem {
-						regulator-on-in-suspend;
+						regulator-on-in-suspend;//on, off rk3326-evb
 						regulator-suspend-microvolt = <0xf4240>;
 					};
 				};
@@ -966,7 +980,7 @@
 					phandle = <0x29>;
 
 					regulator-state-mem {
-						regulator-on-in-suspend;
+						regulator-on-in-suspend;//on, off rk3326-evb
 						regulator-suspend-microvolt = <0x2dc6c0>;
 					};
 				};
@@ -1517,6 +1531,7 @@
 		phys = <0x8c>;
 		phy-names = "usb2-phy";
 		status = "okay";
+		u-boot,dm-pre-reloc;
 	};
 
 	usb@ff340000 {
@@ -2156,6 +2171,7 @@
 		center-supply = <0x0e>;
 		status = "okay";
 		phandle = <0xaa>;
+		u-boot,dm-pre-reloc;
 	};
 
 	rockchip-system-monitor {
@@ -2181,6 +2197,7 @@
 			#gpio-cells = <0x02>;
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
+			u-boot,dm-pre-reloc;
 			phandle = <0x5e>;
 		};
 
@@ -2193,6 +2210,7 @@
 			#gpio-cells = <0x02>;
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
+			u-boot,dm-pre-reloc;
 		};
 
 		gpio2@ff260000 {
@@ -2204,6 +2222,7 @@
 			#gpio-cells = <0x02>;
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
+			u-boot,dm-pre-reloc;
 			phandle = <0xb9>;
 		};
 
@@ -2216,6 +2235,7 @@
 			#gpio-cells = <0x02>;
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
+			u-boot,dm-pre-reloc;
 			phandle = <0x68>;
 		};
 
@@ -3077,10 +3097,6 @@
 		};
 	};
 
-	chosen {
-		bootargs = [00];
-	};
-
 	fiq-debugger {
 		compatible = "rockchip,fiq-debugger";
 		rockchip,serial-id = <0x05>;
@@ -3186,12 +3202,14 @@
         u-boot,dm-pre-reloc;
 
 		button-down {
+			u-boot,dm-pre-reloc;
 			linux,code = <0x72>;
 			label = "Volume Down";
 			press-threshold-microvolt = <0x48058>;
 		};
 
 		button-up {
+			u-boot,dm-pre-reloc;
 			linux,code = <0x73>;
 			label = "Volume Up";
 			press-threshold-microvolt = <0x3a98>;
